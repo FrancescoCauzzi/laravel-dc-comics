@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Comic;
-use App\Http\Requests\StoreComicRequest;
-use App\Http\Requests\UpdateComicRequest;
+use App\Models\Movie;
+use App\Http\Requests\StoreMovieRequest;
+use App\Http\Requests\UpdateMovieRequest;
 
-class ComicController extends Controller
+class MovieController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,14 +15,13 @@ class ComicController extends Controller
      */
     public function index()
     {
-        $comics = Comic::all();
         $footerItems = config('footerItems');
         $navbarTop = config('navbarTop');
         $navbar = config('navbar');
         $dcFeatures = config('dcFeatures');
         $dcNavbarBottom = config('dcNavbarBottom');
 
-        return view('comics/index', compact('navbar', 'comics', 'footerItems', 'dcFeatures', 'dcNavbarBottom', 'navbarTop'));
+        return view('movies/index', compact('navbar', 'footerItems', 'dcFeatures', 'dcNavbarBottom', 'navbarTop'));
     }
 
     /**
@@ -38,10 +37,10 @@ class ComicController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreComicRequest  $request
+     * @param  \App\Http\Requests\StoreMovieRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreComicRequest $request)
+    public function store(StoreMovieRequest $request)
     {
         //
     }
@@ -49,10 +48,10 @@ class ComicController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Comic  $comic
+     * @param  \App\Models\Movie  $movie
      * @return \Illuminate\Http\Response
      */
-    public function show(Comic $comic)
+    public function show(Movie $movie)
     {
         //
     }
@@ -60,10 +59,10 @@ class ComicController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Comic  $comic
+     * @param  \App\Models\Movie  $movie
      * @return \Illuminate\Http\Response
      */
-    public function edit(Comic $comic)
+    public function edit(Movie $movie)
     {
         //
     }
@@ -71,11 +70,11 @@ class ComicController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdateComicRequest  $request
-     * @param  \App\Models\Comic  $comic
+     * @param  \App\Http\Requests\UpdateMovieRequest  $request
+     * @param  \App\Models\Movie  $movie
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateComicRequest $request, Comic $comic)
+    public function update(UpdateMovieRequest $request, Movie $movie)
     {
         //
     }
@@ -83,10 +82,10 @@ class ComicController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Comic  $comic
+     * @param  \App\Models\Movie  $movie
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Comic $comic)
+    public function destroy(Movie $movie)
     {
         //
     }

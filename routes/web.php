@@ -1,5 +1,10 @@
 <?php
-
+// import PageController
+use App\Http\Controllers\Guest\PageController;
+// import ComicController
+use App\Http\Controllers\ComicController;
+// import MovieController
+use App\Http\Controllers\MovieController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +18,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [PageController::class, 'index'])->name('home');
+Route::resource('/movies', MovieController::class);
+Route::resource('/comics', ComicController::class);

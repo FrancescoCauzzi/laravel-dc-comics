@@ -1,1 +1,96 @@
-@import '~bootstrap/scss/bootstrap';
+@import "~bootstrap/scss/bootstrap";
+
+.__navbar-top {
+    background-color: #0282f9;
+    padding-top: 10px;
+    li {
+        list-style: none;
+        a {
+            text-decoration: none;
+            font-size: 0.8em;
+        }
+    }
+}
+
+.__header-bg {
+    background-image: url(../img/jumbotron.jpg);
+    height: 400px;
+}
+
+.__main {
+    background-color: #1c1c1c;
+
+    .__card-ctn {
+        position: relative;
+        .__current-series {
+            background-color: #0282f9;
+            position: absolute;
+            top: -20px;
+            left: -15px;
+
+            padding: 5px 10px 5px 10px;
+        }
+        gap: 15px;
+
+        .__card {
+            width: calc(100% / 6 * 1 - (15px / 6 * 5));
+            min-width: 150px;
+            background-color: #1c1c1c;
+
+            img {
+                object-fit: cover;
+                width: 100%;
+                height: 300px;
+            }
+        }
+    }
+    .__dc-features-ctn-fluid {
+        background-color: #0282f9;
+        .__name {
+            cursor: pointer;
+        }
+    }
+}
+
+.__footer-top-ctn {
+    position: relative;
+    background-image: url(../img/footer-bg.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow: hidden;
+
+    li {
+        list-style: none;
+        a {
+            text-decoration: none;
+            color: #898989;
+        }
+    }
+    .__shop {
+        margin-top: -110px;
+    }
+    #dc-logo-bg {
+        position: absolute;
+        right: 10%;
+        bottom: -18%;
+        z-index: 0;
+    }
+}
+
+.__footer-bottom-ctn {
+    background-color: #303030;
+    button {
+        background-color: transparent;
+        border: 2px solid #0282f9;
+    }
+    .__social-media-title {
+        color: #0282f9;
+    }
+    li {
+        list-style: none;
+        cursor: pointer;
+    }
+    img {
+        padding-top: 12px;
+    }
+}
