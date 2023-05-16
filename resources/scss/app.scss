@@ -1,5 +1,6 @@
 @import "~bootstrap/scss/bootstrap";
 
+// partials/header
 .__navbar-top {
     background-color: #0282f9;
     padding-top: 10px;
@@ -16,42 +17,9 @@
     background-image: url(../img/jumbotron.jpg);
     height: 400px;
 }
+// partials/header
 
-.__main {
-    background-color: #1c1c1c;
-
-    .__card-ctn {
-        position: relative;
-        .__current-series {
-            background-color: #0282f9;
-            position: absolute;
-            top: -20px;
-            left: -15px;
-
-            padding: 5px 10px 5px 10px;
-        }
-        gap: 15px;
-
-        .__card {
-            width: calc(100% / 6 * 1 - (15px / 6 * 5));
-            min-width: 150px;
-            background-color: #1c1c1c;
-
-            img {
-                object-fit: cover;
-                width: 100%;
-                height: 300px;
-            }
-        }
-    }
-    .__dc-features-ctn-fluid {
-        background-color: #0282f9;
-        .__name {
-            cursor: pointer;
-        }
-    }
-}
-
+// partials/footer
 .__footer-top-ctn {
     position: relative;
     background-image: url(../img/footer-bg.jpg);
@@ -94,3 +62,59 @@
         padding-top: 12px;
     }
 }
+// partials/footer
+
+// comics.index
+.__main {
+    background-color: #1c1c1c;
+
+    .__card-ctn {
+        position: relative;
+        .__current-series {
+            background-color: #0282f9;
+            position: absolute;
+            top: -20px;
+            left: -15px;
+
+            padding: 5px 10px 5px 10px;
+        }
+        gap: 15px;
+
+        .__card {
+            width: calc(100% / 6 * 1 - (15px / 6 * 5));
+            min-width: 150px;
+            background-color: #1c1c1c;
+
+            img {
+                object-fit: cover;
+                width: 100%;
+                height: 300px;
+            }
+        }
+    }
+    .__dc-features-ctn-fluid {
+        background-color: #0282f9;
+        .__name {
+            cursor: pointer;
+        }
+    }
+}
+// comics.index
+
+// comics.show
+.__cshow-main {
+    .__thumb-ctn-fluid {
+        background-color: #0282f9;
+        height: 80px;
+        .__thumb-ctn {
+            position: relative;
+            .__thumb-img {
+                position: absolute;
+                height: 290px;
+                width: 195px;
+                bottom: -55px;
+            }
+        }
+    }
+}
+// comics.show
