@@ -1,5 +1,6 @@
 <?php
 
+
 namespace App\Http\Controllers;
 
 use App\Models\Comic;
@@ -8,6 +9,19 @@ use App\Http\Requests\UpdateComicRequest;
 
 class ComicController extends Controller
 {
+    private $layoutComponents;
+
+    public function __construct()
+    {
+        $this->layoutComponents = [
+            'footerItems' => config('footerItems'),
+            'navbarTop' => config('navbarTop'),
+            'navbar' => config('navbar'),
+            'dcFeatures' => config('dcFeatures'),
+            'dcNavbarBottom' => config('dcNavbarBottom')
+        ];
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -16,13 +30,7 @@ class ComicController extends Controller
     public function index()
     {
         $comics = Comic::all();
-        $footerItems = config('footerItems');
-        $navbarTop = config('navbarTop');
-        $navbar = config('navbar');
-        $dcFeatures = config('dcFeatures');
-        $dcNavbarBottom = config('dcNavbarBottom');
-
-        return view('comics/index', compact('navbar', 'comics', 'footerItems', 'dcFeatures', 'dcNavbarBottom', 'navbarTop'));
+        return view('comics/index', array_merge(compact('comics'), $this->layoutComponents));
     }
 
     /**
@@ -54,12 +62,7 @@ class ComicController extends Controller
      */
     public function show(Comic $comic)
     {
-        $footerItems = config('footerItems');
-        $navbarTop = config('navbarTop');
-        $navbar = config('navbar');
-        $dcFeatures = config('dcFeatures');
-        $dcNavbarBottom = config('dcNavbarBottom');
-        return view('comics/show', compact('comic', 'navbar',  'footerItems', 'dcFeatures', 'dcNavbarBottom', 'navbarTop'));
+        return view('comics/show', array_merge(compact('comic'), $this->layoutComponents));
     }
 
     /**
