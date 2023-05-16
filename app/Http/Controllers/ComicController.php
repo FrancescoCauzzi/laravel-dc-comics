@@ -10,7 +10,21 @@ use App\Http\Requests\UpdateComicRequest;
 class ComicController extends Controller
 {
     private $layoutComponents;
+    /*The __construct() function is a special method in PHP classes that is automatically called when an object of the class is created. It is used for initializing object properties or performing any setup tasks that need to be done before using the object.
 
+In the case of the ComicController class, the __construct() function is defined to set up the layout components that are used in multiple methods of the class. The function is called automatically when an instance of the ComicController class is created.
+
+Here's how it works:
+
+    When you create an instance of the ComicController class using $controller = new ComicController();, the __construct() function is automatically executed.
+
+    Inside the __construct() function, the layout components are assigned to the $layoutComponents property using the config() function to retrieve the values from the configuration files.
+
+    The $layoutComponents property now holds the layout components as an associative array.
+
+    Throughout the class, the $layoutComponents array is merged with other arrays using the array_merge() function. This combines the layout components with other specific data arrays (compact()) to create the final array that is passed to the view.
+
+By setting up the layout components in the constructor and reusing them in the different methods of the class, you avoid repeating the code to fetch the layout components in each method. It improves code readability, maintainability, and follows the DRY principle. */
     public function __construct()
     {
         $this->layoutComponents = [
