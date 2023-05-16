@@ -54,7 +54,12 @@ class ComicController extends Controller
      */
     public function show(Comic $comic)
     {
-        //
+        $footerItems = config('footerItems');
+        $navbarTop = config('navbarTop');
+        $navbar = config('navbar');
+        $dcFeatures = config('dcFeatures');
+        $dcNavbarBottom = config('dcNavbarBottom');
+        return view('comics/show', compact('comic', 'navbar',  'footerItems', 'dcFeatures', 'dcNavbarBottom', 'navbarTop'));
     }
 
     /**

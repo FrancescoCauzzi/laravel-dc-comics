@@ -14,7 +14,7 @@
         </div>
         @foreach ($comics as $item)
         <div class="card __card" >
-            <a href=""><img src="{{$item['thumb']}}" class="card-img-top" alt="..."></a>
+            <a href="{{route('comics.show', $item->id)}}"><img src="{{$item['thumb']}}" class="card-img-top" alt="..."></a>
             <div class="card-body">
               <h6 class="card-title text-uppercase text-white __card-title">{{$item['title']}}</h6>
 
