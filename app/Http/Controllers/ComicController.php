@@ -136,6 +136,8 @@ By setting up the layout components in the constructor and reusing them in the d
      */
     public function destroy(Comic $comic)
     {
-        //
+        $comic->delete();
+
+        return redirect()->route('comics.index');
     }
 }
