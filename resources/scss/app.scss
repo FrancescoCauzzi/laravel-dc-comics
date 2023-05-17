@@ -116,5 +116,41 @@
             }
         }
     }
+    .__info-ctn {
+        .__top-info {
+            width: 100%;
+            .__tl-pr-dsc {
+                width: 67%;
+
+                .__price-avail-ctn {
+                    width: 100%;
+                    background-color: #55ba59;
+                    box-shadow: 2px grey;
+
+                    .__price-avail {
+                        width: 67%;
+                        .__price {
+                        }
+                        .__avail {
+                        }
+                    }
+                    .__number {
+                        width: 33%;
+                        .__form-select {
+                            background-color: #55ba59;
+                        }
+                    }
+                }
+            }
+            .__ad {
+                width: 33%;
+                a img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: contain;
+                }
+            }
+        }
+    }
 }
 // comics.show
