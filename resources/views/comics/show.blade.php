@@ -70,9 +70,9 @@
                     <h1 class="modal-title fs-5" id="staticBackdropLabel">Are you sure that you want to delete this comic?</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    <div class="modal-body">
+                    {{-- <div class="modal-body">
                     With this action you will delete this comic
-                    </div>
+                    </div> --}}
                     <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                     {{-- here specify type="submit" !!! otherwise nothing works --}}
