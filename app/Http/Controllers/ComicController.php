@@ -74,6 +74,7 @@ By setting up the layout components in the constructor and reusing them in the d
      * @param  \App\Models\Comic  $comic
      * @return \Illuminate\Http\Response
      */
+    // qui passiamo un oggetto dell'istanza Comic
     public function show(Comic $comic)
     {
         return view('comics/show', array_merge(compact('comic'), $this->layoutComponents));

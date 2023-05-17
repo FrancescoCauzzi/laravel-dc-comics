@@ -14,13 +14,23 @@
 
 
     </div>
-    <div class="container py-5">
+    <div class="container py-5 __info-ctn">
+        <div class="d-flex __top-info">
+            <div class="__tl-pr-dsc">
+                <h1>{{$comic->title}}</h1>
+
+
+            </div>
+            <div class="__ad">
+                <a href=""><img src="{{Vite::asset('resources/img/adv.jpg')}}" alt=""></a>
+            </div>
+
+        </div>
 
 
 
-        <hr>
 
-        <h1>{{$comic->title}}</h1>
+
 
 
 
