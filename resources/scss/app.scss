@@ -157,12 +157,17 @@ a {
             }
         }
         .__btns-ctn {
-            .__edit-btn,
-            .__go-back-btn {
+            .__edit-btn {
                 a {
                     text-decoration: none;
                     color: white;
                 }
+            }
+        }
+        .__go-back-btn {
+            a {
+                text-decoration: none;
+                color: white;
             }
         }
     }
