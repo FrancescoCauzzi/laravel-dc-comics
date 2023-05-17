@@ -99,7 +99,11 @@ By setting up the layout components in the constructor and reusing them in the d
      */
     public function edit(Comic $comic)
     {
-        return view('comics/edit', array_merge(compact('comic'), $this->layoutComponents));
+        // dd($comic->price);
+        $price = str_replace('$', '', $comic->price);
+        $numericPrice = floatval($price);
+
+        return view('comics/edit', array_merge(compact('comic', 'numericPrice'), $this->layoutComponents));
     }
 
     /**

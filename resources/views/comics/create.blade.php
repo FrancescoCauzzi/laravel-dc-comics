@@ -23,9 +23,11 @@
     </div>
 
     <div class="mb-3">
-      <label for="price">Price</label>
-      <input class="form-control" type="number" name="price" id="price">
+        <label for="price">Price</label>
+        <input class="form-control" type="text" name="price" id="price" value="{{ number_format(floatval(str_replace('$', '', $comic->price)), 2) }}">
     </div>
+
+
 
     <div class="mb-3">
       <label for="series">Series</label>

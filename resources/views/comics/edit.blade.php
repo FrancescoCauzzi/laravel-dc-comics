@@ -13,10 +13,10 @@
       <label for="title">Title</label>
       <input class="form-control" type="text" name="title" id="title" value="{{$comic->title}}">
     </div>
-
+    {{-- <textarea> element does not have a value attribute in HTML. Instead, you should provide the initial value of the textarea by placing it between the opening and closing tags of the <textarea> element. --}}
     <div class="mb-3">
       <label for="description">Description</label>
-      <textarea class="form-control" name="description" id="description" value="{{$comic->description}}"></textarea>
+      <textarea class="form-control" name="description" id="description" >{{$comic->description}}</textarea>
     </div>
 
     <div class="mb-3">
@@ -26,7 +26,7 @@
 
     <div class="mb-3">
       <label for="price">Price</label>
-      <input class="form-control" type="number" name="price" id="price" value="{{$comic->price}}">
+      <input class="form-control" type="number" name="price" id="price" value="{{$numericPrice}}">
     </div>
 
     <div class="mb-3">
@@ -56,7 +56,7 @@
 
     <div class="__btns">
 
-        <button type="submit" class="btn btn-primary">Add to the Database</button>
+        <button type="submit" class="btn btn-primary text-uppercase fw-bold px-5">Add to the Database</button>
 
 
     </div>

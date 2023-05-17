@@ -55,8 +55,13 @@
             </div>
 
         </div>
-        <div class="text-center mb-5 __edit-btn">
-            <button type="button" class="btn btn-primary text-uppercase fw-bold px-5"><a href="{{ route('comics.edit', ['comic' => $comic->id]) }}">Edit this Comic</a></button>
+        <div class="__btns-ctn">
+            <div class="text-center mb-5 __edit-btn">
+                <button type="button" class="btn btn-primary text-uppercase fw-bold px-5"><a href="{{ route('comics.edit', ['comic' => $comic->id]) }}">Edit this Comic</a></button>
+            </div>
+            <div class="text-center mb-5 __go-back-btn">
+                <button type="button" class="btn btn-success text-uppercase fw-bold px-5"><a href="{{ route('comics.index')}}">Go back to the previous page</a></button>
+            </div>
         </div>
 
     </div>

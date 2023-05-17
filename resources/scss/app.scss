@@ -138,10 +138,6 @@ a {
 
                     .__price-avail {
                         width: 67%;
-                        .__price {
-                        }
-                        .__avail {
-                        }
                     }
                     .__number {
                         width: 33%;
@@ -160,10 +156,13 @@ a {
                 }
             }
         }
-        .__edit-btn {
-            a {
-                text-decoration: none;
-                color: white;
+        .__btns-ctn {
+            .__edit-btn,
+            .__go-back-btn {
+                a {
+                    text-decoration: none;
+                    color: white;
+                }
             }
         }
     }
