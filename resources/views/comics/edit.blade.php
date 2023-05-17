@@ -26,7 +26,7 @@
 
     <div class="mb-3">
       <label for="price">Price</label>
-      <input class="form-control" type="number" name="price" id="price" value="{{$numericPrice}}">
+      <input class="form-control" type="number" name="price" id="price" step="0.01" value="{{$numericPrice}}">
     </div>
 
     <div class="mb-3">

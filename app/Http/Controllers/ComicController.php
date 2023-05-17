@@ -115,16 +115,16 @@ By setting up the layout components in the constructor and reusing them in the d
      */
     public function update(Request $request, Comic $comic)
     {
-        // prendo come sempre i parametri dei campi di input dal form
+
         $formData = $request->all();
 
-        // sintassi per modificare un oggetto del model del database
+        // Add the dollar sign ('$') to the price and pad with two decimal zeros
+        $formData['price'] = '$' . number_format($formData['price'], 2, '.', '');
+
         $comic->update($formData);
 
-        // effettivamente è questo comando che salva le modifiche nel db
         $comic->save();
 
-        // poi faccio il redirect alla show della comic appena modificata
         return redirect()->route('comics.show', $comic->id);
     }
 
