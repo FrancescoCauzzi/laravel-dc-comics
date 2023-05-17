@@ -99,7 +99,7 @@ By setting up the layout components in the constructor and reusing them in the d
      */
     public function edit(Comic $comic)
     {
-        //
+        return view('comics/edit', array_merge(compact('comic'), $this->layoutComponents));
     }
 
     /**
@@ -109,9 +109,19 @@ By setting up the layout components in the constructor and reusing them in the d
      * @param  \App\Models\Comic  $comic
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateComicRequest $request, Comic $comic)
+    public function update(Request $request, Comic $comic)
     {
-        //
+        // prendo come sempre i parametri dei campi di input dal form
+        $formData = $request->all();
+
+        // sintassi per modificare un oggetto del model del database
+        $comic->update($formData);
+
+        // effettivamente è questo comando che salva le modifiche nel db
+        $comic->save();
+
+        // poi faccio il redirect alla show della comic appena modificata
+        return redirect()->route('comics.show', $comic->id);
     }
 
     /**

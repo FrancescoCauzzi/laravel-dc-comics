@@ -55,14 +55,9 @@
             </div>
 
         </div>
-
-
-
-
-
-
-
-
+        <div class="text-center mb-5 __edit-btn">
+            <button type="button" class="btn btn-primary text-uppercase fw-bold px-5"><a href="{{ route('comics.edit', ['comic' => $comic->id]) }}">Edit this Comic</a></button>
+        </div>
 
     </div>
 </main>

@@ -1,5 +1,8 @@
 @import "~bootstrap/scss/bootstrap";
 
+a {
+    text-decoration: none;
+}
 // partials/header
 .__navbar-top {
     background-color: #0282f9;
@@ -92,6 +95,12 @@
             }
         }
     }
+    .__btn-ctn {
+        a {
+            text-decoration: none;
+            color: white;
+        }
+    }
     .__dc-features-ctn-fluid {
         background-color: #0282f9;
         .__name {
@@ -151,6 +160,20 @@
                 }
             }
         }
+        .__edit-btn {
+            a {
+                text-decoration: none;
+                color: white;
+            }
+        }
     }
 }
 // comics.show
+
+// comics.edit
+.__edit-ctn {
+    a {
+        color: white;
+    }
+}
+// comics.edit
