@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 use App\Models\Comic;
 use App\Http\Requests\StoreComicRequest;
 use App\Http\Requests\UpdateComicRequest;
+use Illuminate\Http\Request;
 
 class ComicController extends Controller
 {
@@ -52,9 +53,9 @@ By setting up the layout components in the constructor and reusing them in the d
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Comic $comic)
     {
-        //
+        return view('comics/create', array_merge(compact('comic'), $this->layoutComponents));
     }
 
     /**
@@ -63,9 +64,19 @@ By setting up the layout components in the constructor and reusing them in the d
      * @param  \App\Http\Requests\StoreComicRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreComicRequest $request)
+    public function store(Request $request)
     {
-        //
+        // Perform an authorization check
+
+        $formData = $request->all();
+        $formData['price'] = '$' . number_format($formData['price'], 2);
+
+
+        $newComic = new Comic();
+        $newComic->fill($formData);
+        $newComic->save();
+
+        return redirect()->route('comics.show', $newComic->id);
     }
 
     /**
