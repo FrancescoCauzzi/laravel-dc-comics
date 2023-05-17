@@ -53,12 +53,39 @@
             <div class="text-center mb-5 __edit-btn">
                 <button type="button" class="btn btn-primary text-uppercase fw-bold px-5"><a href="{{ route('comics.edit', ['comic' => $comic->id]) }}">Edit this Comic</a></button>
             </div>
-            <form class="text-center mb-5 " action="{{route('comics.destroy', $comic->id)}}" method="POST">
+            <form class="text-center mb-5" action="{{ route('comics.destroy', $comic->id) }}" method="POST">
                 @csrf
                 @method('DELETE')
 
-                <button class="btn btn-danger text-uppercase fw-bold px-5" type="submit">delete</button>
-            </form>
+                <!-- Button trigger modal -->
+            <button type="button" class="btn btn-danger text-uppercase fw-bold px-5" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                Delete
+            </button>
+
+            <!-- Modal -->
+            <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Are you sure that you want to delete this comic?</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                    With this action you will delete this comic
+                    </div>
+                    <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    {{-- here specify type="submit" !!! otherwise nothing works --}}
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                    </div>
+                </div>
+                </div>
+            </div>
+
+
+              </form>
+
+
 
         </div>
         <div class=" mb-5 __go-back-btn">
@@ -66,6 +93,12 @@
         </div>
 
     </div>
+    <!-- Button trigger modal -->
+
+
+
+
+  </div>
 </main>
 
 @endsection
