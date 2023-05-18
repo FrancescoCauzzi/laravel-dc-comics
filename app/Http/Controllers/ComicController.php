@@ -140,7 +140,7 @@ class ComicController extends Controller
 
         $validator = Validator::make($formData, [
 
-            'title' => 'required|max:50|min:5',
+            'title' => 'required|max:50|min:4',
             'description' => 'required',
             'thumb' => 'required|max:500',
             'price' => 'required|max:10',

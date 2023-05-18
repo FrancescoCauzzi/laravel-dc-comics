@@ -10,56 +10,98 @@
     @method('PUT')
 
     <div class="mb-3">
-      <label for="title">Title</label>
-      <input class="form-control" type="text" name="title" id="title" value="{{$comic->title}}">
-    </div>
-    {{-- <textarea> element does not have a value attribute in HTML. Instead, you should provide the initial value of the textarea by placing it between the opening and closing tags of the <textarea> element. --}}
-    <div class="mb-3">
-      <label for="description">Description</label>
-      <textarea class="form-control" name="description" id="description" >{{$comic->description}}</textarea>
-    </div>
+        <label for="title">Title</label>
+        <input class="form-control @error('title') is-invalid @enderror" type="text" name="title" id="title" value="{{old('title') ?? $comic->title}}">
+        @error('title')
 
-    <div class="mb-3">
-      <label for="thumb">Image Link</label>
-      <input class="form-control" type="text" name="thumb" id="thumb" value="{{$comic->thumb}}">
-    </div>
+          <div class="invalid-feedback">
+            {{$message}}
+          </div>
+        @enderror
+      </div>
 
-    <div class="mb-3">
-      <label for="price">Price</label>
-      <input class="form-control" type="number" name="price" id="price" step="0.01" value="{{$numericPrice}}">
-    </div>
+      <div class="mb-3">
+        <label for="description">Description</label>
+        <textarea class="form-control @error('description') is-invalid @enderror" name="description" id="description">{{old('description') ?? $comic->description}}</textarea>
+        @error('description')
+          <div class="invalid-feedback">
+            {{$message}}
+          </div>
+        @enderror
+      </div>
 
-    <div class="mb-3">
-      <label for="series">Series</label>
-      <input class="form-control" type="text" name="series" id="series" value="{{$comic->series}}">
-    </div>
+      <div class="mb-3">
+        <label for="thumb">Image Link</label>
+        <input class="form-control @error('thumb') is-invalid @enderror" type="text" name="thumb" id="thumb" value="{{old('thumb') ?? $comic->thumb}}">
+        @error('thumb')
+          <div class="invalid-feedback">
+            {{$message}}
+          </div>
+        @enderror
+      </div>
 
-    <div class="mb-3">
-      <label for="sale_date">Launch Date</label>
-      <input class="form-control" type="date" name="sale_date" id="sale_date" value="{{$comic->sale_date}}">
-    </div>
-
-    <div class="mb-3">
-      <label for="type">Type</label>
-      <input class="form-control" type="text" name="type" id="type" value="{{$comic->type}}">
-    </div>
-
-    <div class="mb-3">
-        <label for="artists">Artists</label>
-        <input class="form-control" type="text" name="artists" id="artists" value="{{$comic->artists}}">
-    </div>
-
-    <div class="mb-3">
-        <label for="writers">Writers</label>
-        <input class="form-control" type="text" name="writers" id="writers" value="{{$comic->writers}}">
-    </div>
-
-    <div class="__btns">
-
-        <button type="submit" class="btn btn-primary text-uppercase fw-bold px-5">Add to the Database</button>
+      <div class="mb-3">
+          <label for="price">Price</label>
+          <input class="form-control @error('price') is-invalid @enderror" type="text" name="price" id="price" value="{{ old(number_format(floatval(str_replace('$', '', $comic->price)), 2)) ?? number_format(floatval(str_replace('$', '', $comic->price)), 2) }}">
+          @error('price')
+          <div class="invalid-feedback">
+            {{$message}}
+          </div>
+        @enderror
+      </div>
 
 
-    </div>
+
+      <div class="mb-3">
+        <label for="series">Series</label>
+        <input class="form-control @error('price') is-invalid @enderror" type="text" name="series" id="series" value="{{old('series') ?? $comic->series}}">
+        @error('series')
+          <div class="invalid-feedback">
+            {{$message}}
+          </div>
+        @enderror
+      </div>
+
+      <div class="mb-3">
+        <label for="sale_date">Launch Date</label>
+        <input class="form-control @error('sale_date') is-invalid @enderror" type="date" name="sale_date" id="sale_date" value="{{old('sale_date') ?? $comic->sale_date}}">
+        @error('sale_date')
+          <div class="invalid-feedback">
+            {{$message}}
+          </div>
+        @enderror
+      </div>
+
+      <div class="mb-3">
+        <label for="type">Type</label>
+        <input class="form-control @error('sale_date') is-invalid @enderror" type="text" name="type" id="type" value="{{old('type') ?? $comic->type}}">
+        @error('type')
+          <div class="invalid-feedback">
+            {{$message}}
+          </div>
+        @enderror
+      </div>
+
+      <div class="mb-3">
+          <label for="artists">Artists</label>
+          <input class="form-control @error('sale_date') is-invalid @enderror" type="text" name="artists" id="artists" value="{{old('artists') ?? $comic->artists}}">
+          @error('artists')
+          <div class="invalid-feedback">
+            {{$message}}
+          </div>
+        @enderror
+      </div>
+
+      <div class="mb-3">
+          <label for="writers">Writers</label>
+          <input class="form-control @error('sale_date') is-invalid @enderror" type="text" name="writers" id="writers" value="{{old('writers')?? $comic->writers}}">
+          @error('writers')
+          <div class="invalid-feedback">
+            {{$message}}
+          </div>
+        @enderror
+      </div>
+      <button type="submit" class="btn btn-success fw-bold text-uppercase">Edit</button>
 
   </form>
   <button type="button" class="btn btn-primary text-uppercase fw-bold px-5"><a href="{{ route('comics.show', ['comic' => $comic->id]) }}">Go back to the previous page</a></button>
