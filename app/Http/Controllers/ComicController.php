@@ -1,31 +1,19 @@
 <?php
 
-
 namespace App\Http\Controllers;
 
 use App\Models\Comic;
 use App\Http\Requests\StoreComicRequest;
 use App\Http\Requests\UpdateComicRequest;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class ComicController extends Controller
 {
     private $layoutComponents;
-    /*The __construct() function is a special method in PHP classes that is automatically called when an object of the class is created. It is used for initializing object properties or performing any setup tasks that need to be done before using the object.
+    /*The __construct() function is a special method in PHP classes that is automatically called when an object of the class is created. It is used for initializing object properties or performing any setup tasks that need to be done before using the object.*/
 
-In the case of the ComicController class, the __construct() function is defined to set up the layout components that are used in multiple methods of the class. The function is called automatically when an instance of the ComicController class is created.
 
-Here's how it works:
-
-    When you create an instance of the ComicController class using $controller = new ComicController();, the __construct() function is automatically executed.
-
-    Inside the __construct() function, the layout components are assigned to the $layoutComponents property using the config() function to retrieve the values from the configuration files.
-
-    The $layoutComponents property now holds the layout components as an associative array.
-
-    Throughout the class, the $layoutComponents array is merged with other arrays using the array_merge() function. This combines the layout components with other specific data arrays (compact()) to create the final array that is passed to the view.
-
-By setting up the layout components in the constructor and reusing them in the different methods of the class, you avoid repeating the code to fetch the layout components in each method. It improves code readability, maintainability, and follows the DRY principle. */
     public function __construct()
     {
         $this->layoutComponents = [
@@ -66,8 +54,8 @@ By setting up the layout components in the constructor and reusing them in the d
      */
     public function store(Request $request)
     {
+        $this->validation($request);
         // Perform an authorization check
-
         $formData = $request->all();
         $formData['price'] = '$' . number_format($formData['price'], 2);
 
@@ -99,7 +87,8 @@ By setting up the layout components in the constructor and reusing them in the d
      */
     public function edit(Comic $comic)
     {
-        // dd($comic->price);
+
+
         $price = str_replace('$', '', $comic->price);
         $numericPrice = floatval($price);
 
@@ -115,6 +104,7 @@ By setting up the layout components in the constructor and reusing them in the d
      */
     public function update(Request $request, Comic $comic)
     {
+        $this->validation($request);
 
         $formData = $request->all();
 
@@ -139,5 +129,49 @@ By setting up the layout components in the constructor and reusing them in the d
         $comic->delete();
 
         return redirect()->route('comics.index');
+    }
+
+    // custom method
+    private function validation($request)
+    {
+        // dobbiamo prendere solo i parametri del form, utilizziamo quindi il metodo all()
+        $formData = $request->all();
+
+
+        $validator = Validator::make($formData, [
+
+            'title' => 'required|max:50|min:5',
+            'description' => 'required',
+            'thumb' => 'required|max:500',
+            'price' => 'required|max:10',
+            'series' => 'required|max:100',
+            'sale_date' => 'required',
+            'type' => 'required|min:30',
+            'artists' => 'required',
+            'writers' => 'required',
+        ], [
+            // dobbiamo inserire qui un insieme di messaggi da comunicare all'utente per ogni errore che vogliamo modificare
+            'title.required' => 'Inserisci un titolo',
+            'title.max' => 'Il titolo non deve essere più lungo di 50 caratteri',
+            'title.min' => 'Il titolo non deve essere più corto di 5 caratteri',
+            'description.required' => "La descrizione del fumetto deve essere indicata",
+            'thumb.required' => "Il link dell'immagine deve essere indicato",
+            'price.required' => "Il prezzo del fumetto deve essere indicato",
+            'price.max' => "Il prezzo del fumetto deve essere di massimo 10 cifre",
+            'series.required' => "Il valore 'series' deve essere indicato",
+            'series.max' => "Il valore 'series' deve essere di massimo 10 caratteri",
+            'sale_date.required' => "IL valore della data di lancio deve essere indicato",
+            'type.required' => "Il valore 'type' deve essere indicato",
+            'type.max' => "Il valore 'type' può essere al massimo di 30 caratteri",
+            'artists.required' => 'Indica almeno un artista',
+            'writers.required' => 'Indica almeno uno sceneggiatore',
+
+
+
+
+        ])->validate();
+
+        // we have to return a value because we are inside a function
+        return $validator;
     }
 }

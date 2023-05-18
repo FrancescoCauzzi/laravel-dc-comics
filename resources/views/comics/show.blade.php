@@ -57,7 +57,7 @@
                 @csrf
                 @method('DELETE')
 
-                <!-- Button trigger modal -->
+            <!-- Button trigger modal -->
             <button type="button" class="btn btn-danger text-uppercase fw-bold px-5" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                 Delete
             </button>
