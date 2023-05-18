@@ -31,6 +31,9 @@
         <div class="text-center mb-5">
             <button type="button" class="btn btn-primary text-uppercase fw-bold px-5"><a href="{{route('comics.create')}}">Add a New Comic</a></button>
         </div>
+        <div class="text-center mb-5">
+            <button type="button" class="btn btn-primary text-uppercase fw-bold px-5"><a href="{{ route('home')}}">Go back to the homepage</a></button>
+        </div>
     </div>
     <div class="container-fluid __dc-features-ctn-fluid d-flex justify-content-center">
         <div class="container py-5">

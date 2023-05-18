@@ -51,7 +51,7 @@
         </div>
         <div class="__btns-ctn d-flex gap-5">
             <div class="text-center mb-5 __edit-btn">
-                <button type="button" class="btn btn-primary text-uppercase fw-bold px-5"><a href="{{ route('comics.edit', ['comic' => $comic->id]) }}">Edit this Comic</a></button>
+                <button type="button" class="btn btn-success text-uppercase fw-bold px-5"><a href="{{ route('comics.edit', ['comic' => $comic->id]) }}">Edit this Comic</a></button>
             </div>
             <form class="text-center mb-5" action="{{ route('comics.destroy', $comic->id) }}" method="POST">
                 @csrf
@@ -89,7 +89,8 @@
 
         </div>
         <div class=" mb-5 __go-back-btn">
-            <button type="button" class="btn btn-success text-uppercase fw-bold px-5"><a href="{{ route('comics.index')}}">Go back to the previous page</a></button>
+            <button type="button" class="btn btn-primary text-uppercase fw-bold px-5"><a href="{{ route('comics.index')}}">Go back to the previous page</a></button>
+            <button type="button" class="btn btn-primary text-uppercase fw-bold px-5"><a href="{{ route('home')}}">Go back to the homepage</a></button>
         </div>
 
     </div>
