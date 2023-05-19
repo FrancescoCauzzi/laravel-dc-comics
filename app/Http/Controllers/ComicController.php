@@ -165,13 +165,9 @@ class ComicController extends Controller
             'type.max' => "Il valore 'type' può essere al massimo di 30 caratteri",
             'artists.required' => 'Indica almeno un artista',
             'writers.required' => 'Indica almeno uno sceneggiatore',
-
-
-
-
         ])->validate();
 
-        // we have to return a value because we are inside a function
+        // we need to return a value because we are inside a function
         return $validator;
     }
 }

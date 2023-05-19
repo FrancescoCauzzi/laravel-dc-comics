@@ -48,8 +48,6 @@
       @enderror
     </div>
 
-
-
     <div class="mb-3">
       <label for="series">Series</label>
       <input class="form-control @error('price') is-invalid @enderror" type="text" name="series" id="series" value="{{old('series')}}">
@@ -105,7 +103,6 @@
   </form>
   <div class="__go-back-create">
     <button type="button" class="btn btn-primary fw-bold text-uppercase"><a href="{{route('comics.index')}}">Go back to the comics page</a></button>
-
   </div>
 
 </div>
