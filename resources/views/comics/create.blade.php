@@ -50,7 +50,7 @@
 
     <div class="mb-3">
       <label for="series">Series</label>
-      <input class="form-control @error('price') is-invalid @enderror" type="text" name="series" id="series" value="{{old('series')}}">
+      <input class="form-control @error('series') is-invalid @enderror" type="text" name="series" id="series" value="{{old('series')}}">
       @error('series')
         <div class="invalid-feedback">
           {{$message}}
